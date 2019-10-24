@@ -22,7 +22,7 @@
             </div>
             <nav id="nav-menu-container">
             <ul class="nav-menu">
-                <li class="menu-active"><a href="{{('service')}}">Home</a></li>
+                <li class="menu-active"><a href="{{('/')}}">Home</a></li>
                 <!-- <li><a href="{{route('about')}}">About</a></li> -->
                 <li><a href="{{route('service')}} ">Service</a></li>
                 <li><a href=" {{route('projects')}} ">Projects</a></li>
