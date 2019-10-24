@@ -18,6 +18,7 @@ Route::get('pex', function () {
 Route::get('/', 'LandingPageController@landing')->name('landing');
 Route::get('projects', 'LandingPageController@projects')->name('projects');
 Route::get('service', 'LandingPageController@service')->name('service');
+Route::get('service/{marketSection}', 'LandingPageController@showService')->name('service.show');
 Route::get('contact', 'LandingPageController@contact')->name('contact');
 Route::get('about', 'LandingPageController@about')->name('about');
 Route::post('email', 'LandingPageController@emailSubscribe')->name('email.create');

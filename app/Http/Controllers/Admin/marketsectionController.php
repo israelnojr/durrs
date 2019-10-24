@@ -40,7 +40,7 @@ class marketsectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, marketSection $marketSection)
     {
         $this->validate($request,[
             'title' => 'required',

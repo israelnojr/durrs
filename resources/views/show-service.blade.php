@@ -20,26 +20,24 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12 pb-30 header-text text-center">
-                <h1 class="mb-10">Our Capturing Market Sectors</h1>
+                <h1 class="mb-10">{{$showMarketsection->title}}</h1>
                 <p>
-                    Who are in extremely love with eco friendly system..
+                {{ str_limit($showMarketsection->desc, $limit = 50, $end = '...') }}
                 </p>
             </div>
         </div>						
         <div class="row">
-        @foreach($marketsection as $mrkk)
-            <div class="col-lg-4">
+            <div class="col-sm-10 offset-md-1">
                 <div class="single-service">
                     <div class="thumb">
-                        <img src="{{ asset('uploads/marketsection/'.$mrkk->image) }}" alt="">									
+                        <img src="{{ asset('uploads/marketsection/'.$showMarketsection->image) }}" alt="">									
                     </div>
-                    <a href="{{ route('service.show', $mrkk->slug) }}"><h4>{{$mrkk->title}}</h4></a>
+                    <h4>{{$showMarketsection->title}}</h4>
                     <p>
-                        {{ str_limit($mrkk->desc, $limit = 150, $end = '...') }}
+                        {{ $showMarketsection->desc}}
                     </p>
                 </div>
-            </div>
-        @endforeach										
+            </div>									
         </div>
     </div>	
 </section>

@@ -12,7 +12,9 @@ class LandingPageController extends Controller
 {
     public function landing()
     {
-        $marketsection = marketSection::all()->random(3);
+       if(marketSection::count() > 0){
+            $marketsection = marketSection::all()->random(3);
+       }
         return view('welcome', compact('marketsection'));
     }
 
@@ -30,6 +32,12 @@ class LandingPageController extends Controller
     {
         $marketsection = marketSection::all();
         return view('service', compact('marketsection'));
+    }
+
+    public function showService($slug)
+    {
+        $showMarketsection = marketSection::where('slug',$slug)->first();
+        return view('show-service', compact('showMarketsection'));
     }
 
     public function Contact()

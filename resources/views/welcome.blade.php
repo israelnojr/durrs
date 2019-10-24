@@ -365,7 +365,7 @@
                     <div class="thumb">
                         <img src="{{ asset('uploads/marketsection/'.$mrkk->image) }}" alt="">									
                     </div>
-                    <h4>{{$mrkk->title}}</h4>
+                    <a href="{{ route('service.show', $mrkk->slug) }}"><h4>{{$mrkk->title}}</h4></a>
                     <p>
                         {{ str_limit($mrkk->desc, $limit = 150, $end = '...') }}
                     </p>
