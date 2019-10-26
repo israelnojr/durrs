@@ -284,7 +284,7 @@
                     <input name="phone" type="phone" class="form-control" placeholder="Phone Number">
                     <input name="email" type="email" class="form-control" placeholder="Email Address">
                     <input name="company" type="text" class="form-control" placeholder="Company">
-                    <textarea name="message" id="" cols="30" rows="5" placeholder="What do want!" class="form-control"></textarea>
+                    <textarea name="message" id="" cols="30" rows="5" placeholder="What do you want!" class="form-control"></textarea>
                     <button class="primary-btn">Request Free Quote</button>
                 </form>
             </div>
