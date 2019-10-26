@@ -160,7 +160,7 @@
             <div class="row feedback-contents justify-content-center align-items-center">
                 <div class="col-lg-6 feedback-left relative d-flex justify-content-center align-items-center">
                     <div class="overlay overlay-bg"></div>
-                    <a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid" src="{{asset('images/play-btn.png')}}" alt=""></a>
+                    <a class="play-btn" href="#"><img class="img-fluid" src="{{asset('images/play-btn.png')}}" alt=""></a>
                 </div>
                 <div class="col-lg-6 feedback-right">
                     <div class="">
