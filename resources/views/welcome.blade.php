@@ -6,7 +6,7 @@
         <div class="container" id="app">
             <div class="row fullscreen d-flex align-items-center justify-content-center">
                 <div class="banner-content col-lg-12 col-md-12">
-                    <h6 class="text-uppercase">Don’t look further, here is the key your success</h6>
+                    <h6 class="text-uppercase">Don’t look further, here is the key to your success</h6>
                     <h1>
                         We’re DurrsConstructions <br> <strong class="text-danger"> Pipeline Industrial Polution</strong>			
                     </h1>
