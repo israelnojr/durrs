@@ -12,10 +12,11 @@ class LandingPageController extends Controller
 {
     public function landing()
     {
-       if(marketSection::count() > 0){
+       if(marketSection::count() >= 3){
             $marketsection = marketSection::all()->random(3);
+            return view('welcome', compact('marketsection'));
        }
-        return view('welcome', compact('marketsection'));
+        return view('welcome');
     }
 
     public function Projects()
