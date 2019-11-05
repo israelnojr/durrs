@@ -1,4 +1,4 @@
-.flash{
+.flash-success{
     position: fixed;
     top: 43px;
     right: 5px;
@@ -11,4 +11,10 @@
     right: -9px !important;
     color: inherit;
     font-size: 25px !important;
+}
+
+.flash-error{
+    width: 20% !important;
+    left: 1000px !important;
+    z-index: 1 !important;
 }

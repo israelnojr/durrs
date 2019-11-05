@@ -7,16 +7,30 @@ use DurrsConstructions\feedback;
 use DurrsConstructions\emailList;
 use DurrsConstructions\quotation;
 use DurrsConstructions\marketSection;
+use DurrsConstructions\MaintenanceSection;
 
 class LandingPageController extends Controller
 {
     public function landing()
     {
-       if(marketSection::count() >= 3){
+       if(marketSection::count() >= 3 ){
             $marketsection = marketSection::all()->random(3);
-            return view('welcome', compact('marketsection'));
-       }
-        return view('welcome');
+
+            $maintenancesection = MaintenanceSection::all()->take(6);
+            $maintenancesectionCount = MaintenanceSection::count() > 0;
+            $marketsectionCount = marketSection::count() > 2;
+            return view('welcome', compact('maintenancesection','maintenancesectionCount','marketsectionCount','marketsection'));
+        }
+
+        if(MaintenanceSection::count() >= 0){
+            $maintenancesection = MaintenanceSection::all()->take(6);
+            $maintenancesectionCount = MaintenanceSection::count() > 0;
+            $marketsectionCount = marketSection::count() > 2;
+            return view('welcome', compact('maintenancesection','maintenancesectionCount','marketsectionCount'));
+        }
+        $marketsectionCount = marketSection::count() > 2;
+        $maintenancesectionCount = MaintenanceSection::count() > 0;
+        return view('welcome', compact('maintenancesectionCount','marketsectionCount'));
     }
 
     public function Projects()
@@ -39,6 +53,12 @@ class LandingPageController extends Controller
     {
         $showMarketsection = marketSection::where('slug',$slug)->first();
         return view('show-service', compact('showMarketsection'));
+    }
+
+    public function showMaintenance($slug)
+    {
+        $maintenancesection = MaintenanceSection::where('slug',$slug)->first();
+        return view('show-maintenance', compact('maintenancesection'));
     }
 
     public function Contact()

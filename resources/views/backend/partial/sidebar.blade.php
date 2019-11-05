@@ -20,10 +20,10 @@
                 </a>
             </li>
 
-            <li class=" {{Request::is('admin/slider*')?'active': ''}} ">
-                <a href="">
+            <li class=" {{Request::is('admin/maintenance-section*')?'active': ''}} ">
+                <a href="/admin/maintenance-section">
                     <i class="material-icons">slideshow</i>
-                    <p>Sliders</p>
+                    <p>Maintenance Section</p>
                 </a>
             </li>
 

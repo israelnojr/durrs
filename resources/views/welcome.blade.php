@@ -24,88 +24,28 @@
 
     <!-- Start cat Area -->
     <section class="cat-area section-gap" id="feature">
-        <div class="container">	
+        <div class="container">
+        @if($maintenancesectionCount)	
             <h1 class="text-center" >Maintenance</h1>
             <p class="text-center">Commercial Management Solutions</p>					
             <div class="row">
+            @foreach($maintenancesection as $maisec)
                 <div class="col-lg-4 ">	
                     <div class="single-cat d-flex flex-column">
-                        <a href="#" class="hb-sm-margin mx-auto d-block">
+                        <a href="{{ route('maintenancesection.show', $maisec->slug) }}" class="hb-sm-margin mx-auto d-block">
                             <span class="hb hb-sm inv hb-facebook-inv">
-                                <span class="lnr lnr-magic-wand"></span>
+                                <span class="lnr {{$maisec->icon}}"></span>
                             </span>
                         </a>
-                        <h4 class="mb-20" style="margin-top: 23px;">Sethensis</h4>
+                        <h4 class="mb-20" style="margin-top: 23px;">{{$maisec->title}}</h4>
                         <p>
-                            Optimize the entire order-to-cash cycle by ensuring timely and accurate transactional data is easily accessible. 
+                            {{ str_limit($maisec->desc, $limit = 150, $end = '...') }}
                         </p>
                     </div>															
                 </div>
-                <div class="col-lg-4 ">	
-                    <div class="single-cat">
-                        <a href="#" class="hb-sm-margin mx-auto d-block">
-                            <span class="hb hb-sm inv hb-facebook-inv">
-                                <span class="lnr lnr-rocket"></span>
-                            </span>
-                        </a>
-                        <h4 class="mt-40 mb-20">PipelineScheduler™</h4>
-                        <p>
-                            Schedule batch liquids pipelines by integrating and consolidating critical information that facilitates decision making .
-                        </p>
-                    </div>															
-                </div>
-                <div class="col-lg-4 ">
-                    <div class="single-cat">
-                        <a href="#" class="hb-sm-margin mx-auto d-block">
-                            <span class="hb hb-sm inv hb-facebook-inv">
-                                <span class="lnr lnr-train"></span>
-                            </span>
-                        </a>
-                        <h4 class="mt-40 mb-20">TransportPlanner™</h4>
-                        <p>
-                            Plan and manage utilization of complex pipeline transportation networks, including truck, rail or barge
-                        </p>
-                    </div>							
-                </div>
-                <div class="col-lg-4 ">
-                    <div class="single-cat">
-                        <a href="#" class="hb-sm-margin mx-auto d-block">
-                            <span class="hb hb-sm inv hb-facebook-inv">
-                                <span class="lnr lnr-hourglass"></span>
-                            </span>
-                        </a>
-                        <h4 class="mt-40 mb-20">GasStream™</h4>
-                        <p>
-                            Manage gas gathering, processing, contracts and transactions using this fully-integrated system.
-                        </p>
-                    </div>							
-                </div>
-                <div class="col-lg-4 ">
-                    <div class="single-cat">
-                        <a href="#" class="hb-sm-margin mx-auto d-block">
-                            <span class="hb hb-sm inv hb-facebook-inv">
-                                <span class="lnr lnr-funnel"></span>
-                            </span>
-                        </a>
-                        <h4 class="mt-40 mb-20">PipelineTransporter™</h4>
-                        <p>
-                            Streamline nominations, scheduling, consolidations and more for third party access to gas shipped from your facilities.
-                        </p>
-                    </div>							
-                </div>
-                <div class="col-lg-4 ">
-                    <div class="single-cat">
-                        <a href="#" class="hb-sm-margin mx-auto d-block">
-                            <span class="hb hb-sm inv hb-facebook-inv">
-                                <span class="lnr lnr-drop"></span>
-                            </span>
-                        </a>
-                        <h4 class="mt-40 mb-20">GasLoadForecaster™</h4>
-                        <p>
-                            Achieve accurate forecasting and improve accounting by using predictive management and modeling
-                        </p>
-                    </div>							
-                </div>
+            @endforeach
+        @endif
+                
             </div>
         </div>	
     </section>
@@ -192,7 +132,7 @@
                             </p> 
                         </span>
                         <div class="cta-buttons ">
-                            <a class=" btn plan-btn header-btn text-uppercase" href="" >
+                            <a class=" btn plan-btn header-btn text-uppercase" href="{{route('service')}}" >
                                 <span>
                                     <span class="text-wrapper">Learn About Products</span>
                                 </span>
@@ -261,7 +201,7 @@
                 Our automation expertise – from projects to operations – is focused on helping you hit your targets 
                 and move your organization into Top Quartile performance.
                 </p>
-                <a class="primary-btn" href="#">Get Started Now</a>
+                <a class="primary-btn"  data-toggle="modal"  data-target="#modal-default">Get Started Now</a>
             </div>
             <div class="col-lg-4 col-md-12 home-about-right relative">
                 <form class="form-wrap" action="{{route('quotation.get')}}" method="post" >
@@ -350,6 +290,7 @@
 <!-- Start service Area -->
 <section class="service-area section-gap" id="service">
     <div class="container">
+        @if($marketsectionCount) 
         <div class="row justify-content-center">
             <div class="col-md-12 pb-30 header-text text-center">
                 <h1 class="mb-10">Our Capturing Market Sectors</h1>
@@ -359,20 +300,23 @@
             </div>
         </div>						
         <div class="row">
-        @foreach($marketsection as $mrkk)
-            <div class="col-lg-4">
-                <div class="single-service">
-                    <div class="thumb">
-                        <img src="{{ asset('uploads/marketsection/'.$mrkk->image) }}" alt="">									
+            @foreach($marketsection as $mrkk)
+                <div class="col-lg-4">
+                    <div class="single-service">
+                        <div class="thumb">
+                            <img src="{{ asset('uploads/marketsection/'.$mrkk->image) }}" alt="">									
+                        </div>
+                        <a href="{{ route('service.show', $mrkk->slug) }}"><h4>{{$mrkk->title}}</h4></a>
+                        <p>
+                            {{ str_limit($mrkk->desc, $limit = 150, $end = '...') }}
+                        </p>
                     </div>
-                    <a href="{{ route('service.show', $mrkk->slug) }}"><h4>{{$mrkk->title}}</h4></a>
-                    <p>
-                        {{ str_limit($mrkk->desc, $limit = 150, $end = '...') }}
-                    </p>
                 </div>
-            </div>
-        @endforeach										
+            @endforeach								
         </div>
+        @else 
+            <p class="center" >Market section must be greater than two posts</p>
+        @endif
     </div>	
 </section>
 <!-- End service Area -->
@@ -448,5 +392,11 @@
         outline: none !important;
     }
     
+    .center{
+        text-align: center;
+    }
+
+   
     
 </style>
+
