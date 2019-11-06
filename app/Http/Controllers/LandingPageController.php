@@ -7,7 +7,7 @@ use DurrsConstructions\feedback;
 use DurrsConstructions\emailList;
 use DurrsConstructions\quotation;
 use DurrsConstructions\marketSection;
-use DurrsConstructions\MaintenanceSection;
+use DurrsConstructions\maintenanceSection;
 
 class LandingPageController extends Controller
 {
@@ -16,20 +16,20 @@ class LandingPageController extends Controller
        if(marketSection::count() >= 3 ){
             $marketsection = marketSection::all()->random(3);
 
-            $maintenancesection = MaintenanceSection::all()->take(6);
-            $maintenancesectionCount = MaintenanceSection::count() > 0;
+            $maintenancesection = maintenanceSection::all()->take(6);
+            $maintenancesectionCount = maintenanceSection::count() > 0;
             $marketsectionCount = marketSection::count() > 2;
             return view('welcome', compact('maintenancesection','maintenancesectionCount','marketsectionCount','marketsection'));
         }
 
         if(MaintenanceSection::count() >= 0){
-            $maintenancesection = MaintenanceSection::all()->take(6);
-            $maintenancesectionCount = MaintenanceSection::count() > 0;
+            $maintenancesection = maintenanceSection::all()->take(6);
+            $maintenancesectionCount = maintenanceSection::count() > 0;
             $marketsectionCount = marketSection::count() > 2;
             return view('welcome', compact('maintenancesection','maintenancesectionCount','marketsectionCount'));
         }
         $marketsectionCount = marketSection::count() > 2;
-        $maintenancesectionCount = MaintenanceSection::count() > 0;
+        $maintenancesectionCount = maintenanceSection::count() > 0;
         return view('welcome', compact('maintenancesectionCount','marketsectionCount'));
     }
 
@@ -57,7 +57,7 @@ class LandingPageController extends Controller
 
     public function showMaintenance($slug)
     {
-        $maintenancesection = MaintenanceSection::where('slug',$slug)->first();
+        $maintenancesection = maintenanceSection::where('slug',$slug)->first();
         return view('show-maintenance', compact('maintenancesection'));
     }
 
