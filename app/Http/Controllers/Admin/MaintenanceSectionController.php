@@ -4,7 +4,7 @@ namespace DurrsConstructions\Http\Controllers\Admin;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use DurrsConstructions\Http\Controllers\Controller;
-use DurrsConstructions\MaintenanceSection;
+use DurrsConstructions\maintenanceSection;
 class MaintenanceSectionController extends Controller
 {
    public function __construct()
@@ -20,7 +20,7 @@ class MaintenanceSectionController extends Controller
 
    public function index()
    {
-       $maintenanceSection = MaintenanceSection::all();
+       $maintenanceSection = maintenanceSection::all();
        return view('backend.maintenance.index', compact('maintenanceSection'));
    }
 
@@ -30,7 +30,7 @@ class MaintenanceSectionController extends Controller
    }
 
 
-   public function store(Request $request, MaintenanceSection $maintenanceSection)
+   public function store(Request $request, maintenanceSection $maintenanceSection)
    {
        $this->validate($request,[
             'title' => 'required',
@@ -53,7 +53,7 @@ class MaintenanceSectionController extends Controller
             $imagename = 'default.png';
         }
 
-        $maintenanceSection = new MaintenanceSection();
+        $maintenanceSection = new maintenanceSection();
         $maintenanceSection->title = $request->title;
         $maintenanceSection->desc = $request->desc;
         $maintenanceSection->slug = $slug;
@@ -65,7 +65,7 @@ class MaintenanceSectionController extends Controller
 
     public function edit($slug)
    {
-    $maintenanceSection = MaintenanceSection::find($slug);
+    $maintenanceSection = maintenanceSection::find($slug);
        return view('backend.maintenance.edit', compact('maintenanceSection'));
    }
 
@@ -76,7 +76,7 @@ class MaintenanceSectionController extends Controller
            'desc' => 'required',
            'image' => 'required|mimes:jpeg,jpg,bmp,png',
        ]);
-       $maintenancesection = MaintenanceSection::find($slug);
+       $maintenancesection = maintenanceSection::find($slug);
        $image = $request->file('image');
        $slug = str_slug($request->title);
        if (isset($image))
@@ -102,7 +102,7 @@ class MaintenanceSectionController extends Controller
 
    public function destroy($id)
     {
-        $maintenancesection = MaintenanceSection::find($id);
+        $maintenancesection = maintenanceSection::find($id);
         if (file_exists('uploads/maintenancesection/'.$maintenancesection->image))
         {
             unlink('uploads/maintenancesection/'.$maintenancesection->image);
