@@ -35,7 +35,6 @@ class MaintenanceSectionController extends Controller
        $this->validate($request,[
             'title' => 'required',
             'desc' => 'required',
-            'image' => 'required|mimes:jpeg,jpg,bmp,png',
         ]);
 
         $image = $request->file('image');
