@@ -193,7 +193,7 @@
                     It’s Time to Transform <br>
                     Your Projects and Operations
                 </h1>
-                <p class="sub">We are here to listen from you, deliver exellence!</p>
+                <p class="sub">We are here to listen to you, and deliver exellence!</p>
                 <p class="pb-20">
                 Many of the industry’s standard approaches were created decades ago, 
                 long before today’s innovation. Doing more of the same is yielding only incremental benefits 
