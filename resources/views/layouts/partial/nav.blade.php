@@ -9,7 +9,7 @@
                     </ul>
                 </div>
                 <div class="col-lg-6 col-sm-6 col-8 header-top-right no-padding">
-                    <a href="tel:+880 012 3654 896">+1 424 2397 650</a>
+                    <a href="tel:+880 012 3654 896">+1 424 2387 095</a>
                     <a href="mailto:support@colorlib.com">support@durrsconstructions.com</a>				
                 </div>
             </div>			  					
