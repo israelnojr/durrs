@@ -35,7 +35,7 @@ Copyright &copy; 2009 DurrsConstructions All rights reserved
             <div class="col-lg-2 col-md-6 col-sm-6 social-widget">
                 <div class="single-footer-widget">
                     <h6>Follow Us</h6>
-                    <p>Let us be social</p>
+                    <p>Let's be social</p>
                     <div class="footer-social d-flex align-items-center">
                         <a href="#"><i class="fa fa-facebook"></i></a>
                         <a href="#"><i class="fa fa-twitter"></i></a>
